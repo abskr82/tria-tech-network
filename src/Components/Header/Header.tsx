@@ -15,7 +15,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import logo from '../../assets/triatechnetwork-high-resolution-logo-white-transparent.png';
 
 
-const Root = styled('div')(({ theme }) => ({
+const Root = styled('div')(() => ({
     flexGrow: 1,
 }));
 
@@ -28,11 +28,11 @@ const MenuButton = styled(IconButton)(({ theme }) => ({
     marginRight: theme.spacing(2),
 }));
 
-const Title = styled(Typography)(({ theme }) => ({
+const Title = styled(Typography)(() => ({
     flexGrow: 1,
 }));
 
-const DrawerPaper = styled('div')(({ theme }) => ({
+const DrawerPaper = styled('div')(() => ({
     width: 240,
 }));
 
