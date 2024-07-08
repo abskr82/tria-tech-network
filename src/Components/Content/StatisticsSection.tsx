@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CountUp from 'react-countup';
@@ -24,7 +24,7 @@ const StatValue = styled(Typography)(({ theme }) => ({
     color: 'rgb(81, 69, 198)',
 }));
 
-const StatField = styled(Typography)(({ theme }) => ({
+const StatField = styled(Typography)(() => ({
     fontFamily: '"Poppins", sans-serif',
     fontSize: '16px',
     fontStyle: 'normal',
