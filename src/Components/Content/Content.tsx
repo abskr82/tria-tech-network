@@ -1,8 +1,12 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import backgroundImage from '../../assets/unsplash-image.webp';
+import AboutUsSection from './AboutUsSection';
+import StatisticsSection from './StatisticsSection';
 
 const Section = styled(Box)(({ theme }) => ({
     position: 'relative',
@@ -67,16 +71,22 @@ const Subtitle = styled(Typography)({
 
 const ContentPage: React.FC = () => {
     return (
-        <Section>
-            <BackgroundImage />
-            <Overlay />
-            <Content>
-                <Title variant="h1">TalentMatch: Perfect Hiring</Title>
-                <Subtitle variant="h6">
-                    Unlock top talent faster with our pre-vetted developer matchmaking service for your company's needs.
-                </Subtitle>
-            </Content>
-        </Section>
+        <>
+            <Section>
+                <BackgroundImage />
+                <Overlay />
+                <Content>
+                    <Title variant="h1">TalentMatch: Perfect Hiring</Title>
+                    <Subtitle variant="h6">
+                        Unlock top talent faster with our pre-vetted developer matchmaking service for your company's needs.
+                    </Subtitle>
+                </Content>
+            </Section>
+            <Container>
+                <AboutUsSection />
+            </Container>
+            <StatisticsSection />
+        </>
     );
 };
 
