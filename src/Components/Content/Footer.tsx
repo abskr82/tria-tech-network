@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, Grid, Typography, Link, IconButton } from '@mui/material';
+import { Box, Grid, Typography, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { Link } from 'react-router-dom';
 
 const FooterContainer = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.grey[200],
@@ -20,6 +21,11 @@ const FooterLink = styled(Link)(({ theme }) => ({
     display: 'block',
     marginBottom: theme.spacing(1),
     color: theme.palette.text.primary,
+    textDecoration: 'none',
+
+    '&:hover': {
+        textDecoration: 'underline',
+    }
 }));
 
 const Footer: React.FC = () => {
@@ -28,12 +34,10 @@ const Footer: React.FC = () => {
             <Grid container spacing={4}>
                 <Grid item xs={12} sm={6} md={3}>
                     <SectionTitle variant="h6">Menu</SectionTitle>
-                    <FooterLink href="#">Home Page</FooterLink>
-                    <FooterLink href="#">About Us</FooterLink>
-                    <FooterLink href="#">Offer</FooterLink>
-                    <FooterLink href="#">Pricing</FooterLink>
-                    <FooterLink href="#">Portfolio</FooterLink>
-                    <FooterLink href="#">Contact</FooterLink>
+                    <FooterLink to="/">Home</FooterLink>
+                    <FooterLink to="/about">About</FooterLink>
+                    <FooterLink to="/services">Services</FooterLink>
+                    <FooterLink to="/contact">Contact</FooterLink>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <SectionTitle variant="h6">Address</SectionTitle>
