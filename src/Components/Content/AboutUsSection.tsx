@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import img5 from '../../assets/5.webp';
 
 const SectionContainer = styled(Box)(({ theme }) => ({
     backgroundColor: 'white',
@@ -49,7 +50,7 @@ const AboutUsSection: React.FC = () => {
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Image
-                        src="/path/to/your/image.png" // Replace with your actual image path
+                        src={img5} // Replace with your actual image path
                         alt="About Us"
                     />
                 </Grid>
