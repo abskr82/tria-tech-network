@@ -8,7 +8,6 @@ import AboutUsSection from './AboutUsSection';
 import StatisticsSection from './StatisticsSection';
 import WhyUsSection from './WhyUsSection';
 import ReviewSection from './ReviewSection';
-import Footer from './Footer';
 
 const Section = styled(Box)(({ theme }) => ({
     position: 'relative',
@@ -94,8 +93,6 @@ const ContentPage: React.FC = () => {
             <Container>
                 <ReviewSection />
             </Container>
-            <Footer />
-
         </>
     );
 };
