@@ -12,8 +12,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import MenuItem from '@mui/material/MenuItem';
 import { styled, useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { NavLink } from 'react-router-dom';
 import logo from '../../assets/triatechnetwork-high-resolution-logo-white-transparent.png';
-
 
 const Root = styled('div')(() => ({
     flexGrow: 1,
@@ -23,17 +23,25 @@ const Logo = styled('img')({
     height: '40px', // Adjust as necessary
 });
 
-
 const MenuButton = styled(IconButton)(({ theme }) => ({
     marginRight: theme.spacing(2),
 }));
 
 const Title = styled(Typography)(() => ({
     flexGrow: 1,
+    cursor: 'pointer'
 }));
 
 const DrawerPaper = styled('div')(() => ({
     width: 240,
+}));
+
+const NavLinkStyled = styled(NavLink)(() => ({
+    textDecoration: 'none',
+    color: 'inherit',
+    '&.active': {
+        borderBottom: '2px solid'
+    },
 }));
 
 const Header: React.FC = () => {
@@ -45,19 +53,26 @@ const Header: React.FC = () => {
         setDrawerOpen(!drawerOpen);
     };
 
-    const menuItems = ['Home', 'About', 'Services', 'Contact'];
+    const menuItems = [
+        { text: 'Home', path: '/' },
+        { text: 'About', path: '/about' },
+        { text: 'Services', path: '/services' },
+        { text: 'Contact', path: '/contact' },
+    ];
 
     const drawer = (
-        <Drawer
-            anchor="right"
-            open={drawerOpen}
-            onClose={handleDrawerToggle}
-        >
+        <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerToggle}>
             <DrawerPaper>
                 <List>
-                    {menuItems.map((text, index) => (
-                        <ListItem button key={index}>
-                            <ListItemText primary={text} />
+                    {menuItems.map((item, index) => (
+                        <ListItem
+                            button
+                            key={index}
+                            component={NavLinkStyled}
+                            to={item.path}
+                            onClick={handleDrawerToggle}
+                        >
+                            <ListItemText primary={item.text} />
                         </ListItem>
                     ))}
                 </List>
@@ -71,7 +86,9 @@ const Header: React.FC = () => {
             <AppBar position="static">
                 <Toolbar>
                     <Title variant="h6">
-                        <Logo src={logo} alt="Logo" />
+                        <NavLink to="/" style={{ textDecoration: 'none' }}>
+                            <Logo src={logo} alt="Logo" />
+                        </NavLink>
                     </Title>
                     {isMobile ? (
                         <>
@@ -87,7 +104,9 @@ const Header: React.FC = () => {
                         </>
                     ) : (
                         menuItems.map((item) => (
-                            <MenuItem key={item}>{item}</MenuItem>
+                            <MenuItem key={item.text} component={NavLinkStyled} to={item.path}>
+                                {item.text}
+                            </MenuItem>
                         ))
                     )}
                 </Toolbar>
