@@ -6,6 +6,9 @@ import Container from '@mui/material/Container';
 import backgroundImage from '../../assets/unsplash-image.webp';
 import AboutUsSection from './AboutUsSection';
 import StatisticsSection from './StatisticsSection';
+import WhyUsSection from './WhyUsSection';
+import ReviewSection from './ReviewSection';
+import Footer from './Footer';
 
 const Section = styled(Box)(({ theme }) => ({
     position: 'relative',
@@ -85,6 +88,14 @@ const ContentPage: React.FC = () => {
                 <AboutUsSection />
             </Container>
             <StatisticsSection />
+            <Container>
+                <WhyUsSection />
+            </Container>
+            <Container>
+                <ReviewSection />
+            </Container>
+            <Footer />
+
         </>
     );
 };
